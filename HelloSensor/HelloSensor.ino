@@ -256,11 +256,11 @@ break;
     ThingSpeak.setField(7, value7);
     ThingSpeak.setField(8, sec);
   int a = ThingSpeak.writeFields(hello1, myWriteAPIKey1);   
-    ThingSpeak.setField(5, MQ.MQData100());    
-    ThingSpeak.setField(6, other.MQData100());   
+    ThingSpeak.setField(1, MQ.MQData100());    
+    ThingSpeak.setField(2, other.MQData100());   
     if (gpscontrol == 1){ 
-    ThingSpeak.setField(7, latitude);
-    ThingSpeak.setField(8, longitude);
+    ThingSpeak.setField(3, latitude);
+    ThingSpeak.setField(4, longitude);
     }
     int b = ThingSpeak.writeFields(hello2, myWriteAPIKey2);
     lastTime = millis();
