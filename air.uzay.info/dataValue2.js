@@ -1,6 +1,6 @@
         $(document).ready(function() {
             function getData() {
-                var url ="https://api.thingspeak.com/channels/2195036/fields/1,2,3,4,5,6,7,8.json?api_key=DG5Q1OBE0MW2GDTF&results=1";
+                var url ="https://api.thingspeak.com/channels/2195036/fields/5,6,7,8.json?api_key=DG5Q1OBE0MW2GDTF&results=1";
 
                 $.getJSON(url, function(data) {
                     var field5Values = [];
