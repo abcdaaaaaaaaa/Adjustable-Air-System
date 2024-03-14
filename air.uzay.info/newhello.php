@@ -23,7 +23,7 @@ switch ( $char1 ) {
 case 1 :
   
 $sql = "INSERT INTO MQ135 (CO, Alcohol, CO2, Toluen,  NH4, Aceton, Air, SpaceData100, SpaceData200, lat, lng)
-        VALUES ('" . $value1 . "', '" . $value2 . "', '" . $value3 . "', '" . $value4 . "', '" . $value5 . "', '" . $value6 . "', '" . $value7 . "', " . $value13 . "', '" . $value14 . "', '" . $value15 . "', '" . $value16 . "')";
+        VALUES ('" . $value1 . "', '" . $value2 . "', '" . $value3 . "', '" . $value4 . "', '" . $value5 . "', '" . $value6 . "', '" . $value7 . "', '" . $value13 . "', '" . $value14 . "', '" . $value15 . "', '" . $value16 . "')";
 break;
 
 case 2 :
@@ -93,7 +93,7 @@ $sql = "INSERT INTO MQ137 (CO, Ethanol, NH3, Air, SpaceData100, SpaceData200, la
 break;
 
 case 13 :
-
+    
 $value4 = $value4/10;
   
 $sql = "INSERT INTO MQ303A (Isobutane, Hydrogen, Ethanol, Air, SpaceData100, SpaceData200, lat, lng)
