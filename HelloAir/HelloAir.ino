@@ -1,41 +1,31 @@
 #include <WiFi.h>
-#include <Wire.h>
 #include <TinyGPS++.h>
 #include "ThingSpeak.h"
 #include "TM1637.h"
 #include "HelloAir.h"
 
 #define ADC_BIT_RESU  (12)
-#define space1        (12)
-#define space2        (14)
+#define space1        (A1)
+#define space2        (A2)
 
-#define CLK (18)
-#define DIO (15)
+#define CLK (2)
+#define DIO (3)
 
 TM1637 tm1637(CLK,DIO);
-TFLI2C tflI2C;
 
 HelloSensor MQ(ADC_BIT_RESU, space1);
 HelloSensor other(ADC_BIT_RESU, space2);
 
 HardwareSerial neogps(1); 
 TinyGPSPlus gps;
-Servo myservo;
 
 int value1, value2, value3, value4, value5, value6, value7, sec;
 int gpscontrol = 0;
 
 String latitude, longitude;
 
-int16_t  tfAddr = TFL_DEF_ADR;   
-uint16_t tfFrame = TFL_DEF_FPS;   
-
-int16_t  tfDist = 0;   
-int16_t  tfFlux = 0;  
-int16_t  tfTemp = 0;  
-
-const char* ssid = "REPLACE_WİTH_YOUR_SSID";  
-const char* password = "REPLACE_WİTH_YOUR_PASSWORD";
+const char* ssid = "A.Mert iPhone'u";  
+const char* password = "bugungunlerdenoyun";
 WiFiClient  client;
 
 unsigned long int hello2 = 2;
@@ -51,13 +41,9 @@ void setup() {
   Serial.begin(115200);  
   MQ.begin();
   other.begin();
-  Radyoactivite.begin();
   tm1637.init();
   tm1637.set(BRIGHT_TYPICAL);
-  myservo.attach(26);
-  neogps.begin(9600, SERIAL_8N1, 4, 2); 
-  Wire.begin();
-  delay(8000);
+  neogps.begin(9600, SERIAL_8N1, 1, 0); 
   WiFi.mode(WIFI_STA);  Serial.println("Connecting to WiFi ");
   WiFi.begin(ssid, password);
   while(WiFi.status() != WL_CONNECTED) { 
@@ -72,7 +58,7 @@ void setup() {
 }
 
 void loop() {
-sec = map(analogRead(13),0,4096,1,14);
+sec = map(analogRead(A1),0,4096,1,14);
 switch(sec){
 case (1):
 {
@@ -399,8 +385,8 @@ value6 = MQ.MQ135DataAceton();
 value7 = MQ.MQ135DataAir();
 }
 
-// GPS : [GND --> GND] [TX --> D4] [RX --> D2] [VCC --> 3.3V]
-// MQ-X: [PIN --> D12] [GND --> GND] [VCC --> 3.3V]
-// Other Sensor: [PIN --> D14] [GND --> GND] [VCC --> 3.3V]
-// Potentiometer: [PIN --> D13] [GND --> GND] [VCC --> 3.3V]
-// TM1637: [CLK --> D18] [DIO --> D15] [VCC --> 5V] [GND --> GND]
+// GPS : [GND --> GND] [TX --> D1] [RX --> D0] [VCC --> 3.3V]
+// MQ-X: [PIN --> A1] [GND --> GND] [VCC --> 3.3V]
+// Other Sensor: [PIN --> A2] [GND --> GND] [VCC --> 3.3V]
+// Potentiometer: [PIN --> A0] [GND --> GND] [VCC --> 3.3V]
+// TM1637: [CLK --> D2] [DIO --> D3] [VCC --> 5V] [GND --> GND]
