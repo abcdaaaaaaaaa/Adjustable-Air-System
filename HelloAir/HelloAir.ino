@@ -58,7 +58,7 @@ void setup() {
 }
 
 void loop() {
-sec = map(analogRead(A1),0,4096,1,14);
+sec = map(analogRead(A1),0,(1 << ADC_BIT_RESU) - 1,1,14);
 switch(sec){
 case (1):
 {
@@ -334,7 +334,6 @@ break;
   }
   
   if ((millis() - lastTime) > timerDelay) {
-
     ThingSpeak.setField(1, value1);
     ThingSpeak.setField(2, value2);
     ThingSpeak.setField(3, value3);
