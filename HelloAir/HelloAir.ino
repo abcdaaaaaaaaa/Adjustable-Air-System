@@ -294,6 +294,20 @@ break;
 case (14):
 {
 tm1637.display(3,10);
+tm1637.display(2,7);
+tm1637.display(1,0);
+tm1637.display(0,3);
+MQ.setRL(50);
+MQ.RSRoMQAir(100);
+MQ.dangerousPer(0.96); 
+value1 = MQ.MQ307ADataCO();
+MQ.dangerousPer(56.107);
+value2 = MQ.MQ307ADataH2();
+}
+break;
+case (15):
+{
+tm1637.display(3,10);
 tm1637.display(2,9);
 tm1637.display(1,0);
 tm1637.display(0,3);
@@ -307,12 +321,7 @@ MQ.dangerousPer(54.5454);
 value3 = MQ.MQ309ADataCO();
 MQ.dangerousPer(49.0909);
 value4 = MQ.MQ309ADataAlcohol();
-MQ.RSRoMQAir(100);
-MQ.dangerousPer(0.15); 
-value5 = MQ.MQ309ADataLowCO();
-MQ.dangerousPer(81.9);
-value6 = MQ.MQ309ADataSecondH2();
-value7 = MQ.MQ309ADataAir();
+value5 = MQ.MQ309ADataAir();
 }
 break;
 default:
