@@ -106,7 +106,7 @@ $sql = "INSERT INTO MQ307A (CO, H2, SpaceData100, SpaceData200, lat, lng)
         VALUES ('" . $value1 . "', '" . $value2 . "', '" . $value13 . "', '" . $value14 . "', '" . $value15 . "', '" . $value16 . "')";
 break;
   
-case 14 :
+case 15 :
   
 $sql = "INSERT INTO MQ309A (H2, CH4, CO, Alcohol, Air, SpaceData100, SpaceData200, lat, lng)
         VALUES ('" . $value1 . "', '" . $value2 . "', '" . $value3 . "', '" . $value4 . "', '" . $value5 . "', '" . $value13 . "', '" . $value14 . "', '" . $value15 . "', '" . $value16 . "')";
