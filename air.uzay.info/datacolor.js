@@ -6,6 +6,7 @@ function lightpurple(data) {return('rgba(153, 102, 255,' + ' ' + String(data) + 
 function bluepurple(data) {return('rgba(0, 0, 255,' + ' ' + String(data) + ')')};
 function purple(data) {return('rgba(58, 51, 255,' + ' ' + String(data) + ')')};
 
+function two(data){return([blue(data), green(data)])}
 function three(data){return([blue(data), green(data), lightpurple(data)])}
 function four(data){return([blue(data), green(data), lightpurple(data), bluepurple(data)])}
 function five(data){return([red(data), blue(data), green(data), lightpurple(data), bluepurple(data)])}
@@ -14,10 +15,14 @@ function seven(data){return([red(data), orange(data), blue(data), green(data), p
 
 let not, liste; 
 let same =  ['H2', 'LPG', 'CH4', 'CO', 'Alcohol', 'Air'];
-let sov = [toplam1, toplam2, toplam3, toplam4, toplam5, toplam6, toplam7];
 
 function earth(data , color){
 switch(data){
+case 2:
+liste = [toplam1, toplam2];
+return two(color)
+break;
+		
 case 3:
 liste = [toplam1, toplam2, toplam3];
 return three(color)
@@ -39,12 +44,12 @@ return six(color)
 break;
 
 case 7:
-liste = sov;
+liste = [toplam1, toplam2, toplam3, toplam4, toplam5, toplam6, toplam7];
 return seven(color)
 break;
 
 default:
-liste = sov;
+liste = [toplam1, toplam2, toplam3, toplam4, toplam5, toplam6, toplam7];
 return seven(color)
 break;
 }
@@ -118,8 +123,13 @@ return ['Isobutane', 'Hydrogen', 'Ethanol',  'Air']
 break;
 
 case 14:
+not = 'MQ307A'; 
+return ['CO', 'H2']
+break;
+
+case 15:
 not = 'MQ309A'; 
-return ['H2', 'CH4', 'CO', 'Alcohol', 'LowCO', 'SecondH2', 'Air']
+return ['H2', 'CH4', 'CO', 'Alcohol', 'Air']
 break;
 
 default:
