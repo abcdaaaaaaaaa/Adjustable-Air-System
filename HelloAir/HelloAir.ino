@@ -24,8 +24,8 @@ int gpscontrol = 0;
 
 String latitude, longitude;
 
-const char* ssid = "A.Mert iPhone'u";  
-const char* password = "bugungunlerdenoyun";
+const char* ssid = "REPLACE_WİTH_YOUR_SSID";  
+const char* password = "REPLACE_WİTH_YOUR_PASSWORD";
 WiFiClient  client;
 
 unsigned long int hello2 = 2;
@@ -44,7 +44,8 @@ void setup() {
   tm1637.init();
   tm1637.set(BRIGHT_TYPICAL);
   neogps.begin(9600, SERIAL_8N1, 1, 0); 
-  WiFi.mode(WIFI_STA);  Serial.println("Connecting to WiFi ");
+  WiFi.mode(WIFI_STA);  
+  Serial.println("Connecting to WiFi ");
   WiFi.begin(ssid, password);
   while(WiFi.status() != WL_CONNECTED) { 
     delay(500);
@@ -58,7 +59,7 @@ void setup() {
 }
 
 void loop() {
-sec = map(analogRead(A1),0,(1 << ADC_BIT_RESU) - 1,1,14);
+sec = map(analogRead(A1),0,(1 << ADC_BIT_RESU) - 1,1,15);
 switch(sec){
 case (1):
 {
