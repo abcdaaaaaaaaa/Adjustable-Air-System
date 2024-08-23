@@ -20,7 +20,6 @@ HardwareSerial neogps(1);
 TinyGPSPlus gps;
 
 int value1, value2, value3, value4, value5, value6, value7, sec;
-int gpscontrol = 0;
 
 String latitude, longitude;
 
@@ -331,17 +330,6 @@ MQ135doing();
 }
 break;
 }
-
-  if (neogps.available()) {
-    char c = neogps.read();
-    if (gps.encode(c)) {
-      if (gps.location.isValid()) {
-       latitude  = (gps.location.lat(), 6) * pow(10,6); 
-       longitude = (gps.location.lng(), 6) * pow(10,6); 
-       gpscontrol = 1;
-      }
-    }
-  }
   
   if ((millis() - lastTime) > timerDelay) {
     ThingSpeak.setField(1, value1);
@@ -355,13 +343,19 @@ break;
   int a = ThingSpeak.writeFields(hello1, myWriteAPIKey1);  
     ThingSpeak.setField(5, MQ.MQData100());    
     ThingSpeak.setField(6, other.MQData100());   
-    if (gpscontrol == 1){ 
-    ThingSpeak.setField(7, latitude);
-    ThingSpeak.setField(8, longitude);
+    if (neogps.available()) {
+      char c = neogps.read();
+      if (gps.encode(c)) {
+        if (gps.location.isValid()) {
+         latitude  = String((gps.location.lat() + 90) * pow(10,6)); 
+         longitude = String((gps.location.lng() + 180) * pow(10,6)); 
+         ThingSpeak.setField(7, latitude);
+         ThingSpeak.setField(8, longitude);
+        }
+      }
     }
     int b = ThingSpeak.writeFields(hello2, myWriteAPIKey2);
     lastTime = millis();
-    gpscontrol = 0;
   }
 }
 
