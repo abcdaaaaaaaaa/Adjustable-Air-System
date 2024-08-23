@@ -94,7 +94,7 @@ break;
 
 case 13 :
     
-$value4 = $value4/100;
+$value4 = $value4 / 100;
   
 $sql = "INSERT INTO MQ303A (Isobutane, Hydrogen, Ethanol, Air, SpaceData100, SpaceData200, lat, lng)
         VALUES ('" . $value1 . "', '" . $value2 . "', '" . $value3 . "', '" . $value4 . "', '" . $value13 . "', '" . $value14 . "', '" . $value15 . "', '" . $value16 . "')";
@@ -102,8 +102,14 @@ break;
 
 case 14 :
   
-$sql = "INSERT INTO MQ309A (H2, CH4, CO, Alcohol, LowCO, SecondH2, Air, SpaceData100, SpaceData200, lat, lng)
-        VALUES ('" . $value1 . "', '" . $value2 . "', '" . $value3 . "', '" . $value4 . "', '" . $value5 . "', '" . $value6 . "', '" . $value7 . "', '" . $value13 . "', '" . $value14 . "', '" . $value15 . "', '" . $value16 . "')";
+$sql = "INSERT INTO MQ307A (CO, H2, SpaceData100, SpaceData200, lat, lng)
+        VALUES ('" . $value1 . "', '" . $value2 . "', '" . $value13 . "', '" . $value14 . "', '" . $value15 . "', '" . $value16 . "')";
+break;
+  
+case 14 :
+  
+$sql = "INSERT INTO MQ309A (H2, CH4, CO, Alcohol, Air, SpaceData100, SpaceData200, lat, lng)
+        VALUES ('" . $value1 . "', '" . $value2 . "', '" . $value3 . "', '" . $value4 . "', '" . $value5 . "', '" . $value13 . "', '" . $value14 . "', '" . $value15 . "', '" . $value16 . "')";
 break;
 
 default:
