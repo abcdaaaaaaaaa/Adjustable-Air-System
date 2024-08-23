@@ -15,8 +15,8 @@
         $char1  = $_COOKIE["value8"];
         $value13 = $_COOKIE["value13"];
         $value14 = $_COOKIE["value14"];
-        $value15 = $_COOKIE["value15"];
-        $value16 = $_COOKIE["value16"];
+        $value15 = $_COOKIE["value15"] * pow(10,-6) - 90;
+        $value16 = $_COOKIE["value16"] * pow(10,-6) - 180;
 
 switch ( $char1 ) {
 
